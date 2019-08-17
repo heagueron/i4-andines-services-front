@@ -1,0 +1,141 @@
+<!--
+  <app-header [title]="title || 'andines'"></app-header>
+-->
+<ion-content fullscreen>
+
+
+  <ion-slides *ngIf="isStarting" [options]="slideOptons">
+    <ion-slide>
+        <img src="/assets/images/mountain.png" alt="ands."/>
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-grid fixed *ngIf="!isStarting" padding>
+
+    <ion-row>
+
+      <ion-col size="10">
+        <img class="w-500"
+          src="/assets/images/mountain.png"
+          alt="ands."/>
+      </ion-col>
+
+      <ion-col size="2">
+          <ion-menu-button menu="andinesMenu" color="secondary"></ion-menu-button>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <h1> La solucion segura y confiable para cuidar su hogar. </h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col size="6">
+        <ion-card (click)="quoteCleaning()">
+          <img src="/assets/images/cleaning1.jpg" alt="ands."/>
+          <ion-card-header>
+            <ion-card-title><small>Limpiezas</small></ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+          <ion-card routerLink="/service-list">
+            <img src="/assets/images/cleaning2.jpg" alt="ands."/>
+            <ion-card-header>
+              <ion-card-title><small>Ver todos</small></ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="12">
+          <h3> Contrate su servicio </h3>
+          <p>
+            Nuestros profesionales estan listos para brindar rapidamente la mejor solucion.
+          </p>
+          
+          
+        </ion-col>
+    </ion-row>
+
+    <!-- Services cards sliced -->
+    <ion-row>
+      <ion-col size="6" size-lg="3" size-md="4" size-sm="6" size-xs="6"
+              *ngFor="let service of services | slice: 0:4">
+        <ion-card>
+          <img [src]="service.image_path" alt="ands."/>
+          <ion-card-header>
+            <ion-card-title><small>{{ service.title }}</small></ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <p class="r-link" routerLink="/service-list" color="secondary">
+          Ver todos los servicios > 
+      </p>
+      </ion-col>
+    </ion-row>
+    
+    <hr>
+
+    <ion-row class="vetted ion-text-center">
+        <ion-col size="12">
+          <h3> Profesionales verificados </h3>
+          <p>
+            Los profesionales a su disposicion desde esta plataforma cuentan con amplia experiencia y buenas calificaciones de nuestros clientes.
+          </p>
+          <p class="r-link" (click)="readMoreAboutProfessionals()" color="secondary">
+              Leer mas. 
+          </p>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+        <ion-col size="12">
+          <h3> Eres un Profesional Destacado? </h3>
+          <p>
+            Los mejores profesionales utilizan esta plataforma para llegar a mas clientes.
+          </p>
+          
+          <ion-button routerLink="/signup"
+                      size="large"
+                      expand="full"
+                      color="primary">
+            Registrate aqui
+          </ion-button>
+          
+        </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+
+<div>
+  <app-footer></app-footer>
+</div>  
+
+</ion-content>
+
+
+
+<!--
+  <ion-footer>
+  <app-footer></app-footer>
+</ion-footer>
+-->
+
+
+

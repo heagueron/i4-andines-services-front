@@ -1,3 +1,24 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+<!--
+  <ion-menu menuId="andinesMenu" side="start" type="overlay">
+-->
+
+  <ion-menu menuId="andinesMenu" side="start" contentId="principal">
+
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle *ngFor="let option of menu_options">
+        <ion-item [routerLink]="option.redirecTo">
+          <ion-icon slot="start" [name]="option.icon"></ion-icon>
+          <ion-label>{{ option.name }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+  <ion-router-outlet id="principal"></ion-router-outlet>
+
 </ion-app>

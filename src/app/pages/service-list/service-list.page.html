@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col size="12">
+      <h3> Contrate su servicio </h3>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="6" size-lg="3" size-md="4" size-sm="6" size-xs="6"
+            *ngFor="let service of services">
+      <ion-card>
+        <img [src]="service.image_path" alt="ands."/>
+        <ion-card-header>
+          <ion-card-title><small>{{ service.title }}</small></ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+
+  <div>
+    <app-footer></app-footer>
+  </div>
+</ion-content>
